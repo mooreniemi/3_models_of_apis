@@ -1,0 +1,12 @@
+graph {
+	subgraph cluster_0 {
+    label="client subgraph";
+      d -- c -- f[color=red,penwidth=3.0];
+    }
+    a -- b;
+    b -- d;
+    b -- c;
+    d -- e;
+		e -- f;
+		a -- d;
+	}

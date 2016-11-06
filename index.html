@@ -22,8 +22,18 @@
     </script>
 
     <style>
-     .bubble
-     {
+     .copy-left {
+       display: inline-block;
+       text-align: right;
+       margin: 0px;
+       -moz-transform: scaleX(-1);    /* Gecko */
+       -o-transform: scaleX(-1);      /* Opera */
+       -webkit-transform: scaleX(-1); /* Webkit */
+       transform: scaleX(-1);         /* Standard */
+       filter: FlipH;                 /* IE 6/7/8 */
+     }
+
+     .bubble {
        position: relative;
        height: 120px;
        background: #FFFFFF;
@@ -34,8 +44,7 @@
        border: #7F7F7F solid 2px;
      }
 
-     .bubble:after
-     {
+     .bubble:after {
        content: '';
        position: absolute;
        border-style: solid;
@@ -48,8 +57,7 @@
        top: 45px;
      }
 
-     .bubble:before
-     {
+     .bubble:before {
        content: '';
        position: absolute;
        border-style: solid;
@@ -156,14 +164,14 @@
 
         <section>
           <p class="fragment" data-fragment-index="1">
-            <span class="fragment" data-fragment-index="4">
+            <span class="fragment" data-fragment-index="3">
               ❌
             </span>
             🏭 resource state
           </p>
           <p class="fragment" data-fragment-index="2">
             application state 🎮
-            <span class="fragment" data-fragment-index="3">
+            <span class="fragment" data-fragment-index="4">
               ✅
             </span>
           </p>
@@ -179,6 +187,7 @@
         <section>
           <img src="simple_graph.svg">
           <img src="less_simple_graph.svg" class="fragment">
+          <img src="simple_with_subgraph.svg" class="fragment">
           <aside class="notes">
             Here's a pretty simple graph. I think the way most people look at RESTful APIs today, they see each node as a representation of persisted object state. The only links people concieve of are at the object relation level. So something like GraphQL extends and seems to supercede that view by giving you a flexible language to redefine objects and traverse an object graph. As a side note, I want to point out that's not really new. If you're curious, check out SPARQL.
             Anyway this object relation model isn't wrong. But I'm using this graph to represent the state machine of our application on the server. So the red is a path of execution through that program. You can think of the edges as simple links, but it's important to see them also as more advanced controls like forms.
@@ -229,7 +238,7 @@
         <section>
           <h4>data with affordances > data without affordances</h4>
           <h2>💺 > 🌲</h2>
-          <p class="fragment">(Humans prefer to sit on chairs.)</p>
+          <p class="fragment">(Humans prefer to sit on chairs, not chair-making-materials.)</p>
           <aside class="notes">
             So fully "mature" REST, with hypermedia, is just about providing responses with affordances that help a user understand where they are in the application, and what they can do. If you're a client developer, I want you to be asking me for affordances with data. If you're a server developer, I want you to be providing affordances with data. Why? Because that way we'll have a shared understanding of what the semantics of the application are in total.
           </aside>
@@ -245,7 +254,8 @@
         </section>
 
         <section>
-          <p>alex moore - niemi 2016</p>
+          <p><a href="https://twitter.com/feminstwerewolf">alex moore - niemi</a></p>
+          <p><span class="copy-left">©</span> 2016</p>
           <aside class="notes">
             Thanks!
           </aside>
