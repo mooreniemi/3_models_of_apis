@@ -1,0 +1,14 @@
+digraph {
+  homepage -> products [label=":category_id" color=blue]
+  homepage -> top_5_products [color=green label=":top_5_vendor_id"]
+  top_5_products -> cart [color=green label="add"]
+  vendor -> vendors [label="up"]
+  vendors -> vendor [label=":vendor_id"]
+  product -> products [label="up"]
+  products -> product [label=":product_id" color=blue]
+  product -> cart [label="add" color=blue]
+  cart -> product [label="delete"]
+  cart -> invoice [label="buy" color=blue]
+  product -> vendor [label=":vendor_id"]
+  vendor -> products [label="products"]
+}
