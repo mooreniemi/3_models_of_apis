@@ -195,15 +195,23 @@
             The content of any node may be made up of multiple different objects. This is possible because resources don't have to map to our object model 1:1. A resource is free to be a higher level abstraction. One key thing to observe about this state machine graph is that you can negotiate with a client about how much of it to send over at once. If you want totally dynamic binding, you can just give your client a single node at a time. But for clients that want fewer requests, you can let them request subgraphs or even the entire graph at a single request. That's called transclusion and we can chat about it a bit more if you're curious.
           </aside>
         </section>
+        <section>
+          <h5>TL;DR: try state machines instead of entity-relations</h5>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Finite_state_machine_example_with_comments.svg" style="background-color:white; height:464px; width:424px;">
+          <img src="https://wcs.smartdraw.com/entity-relationship-diagram/img/information-engineering-style.jpg?bn=1510011060">
+          <aside class="notes">
+            I think most would agree that whether you want to think about the graph of program state or the graph of object relationships, we can get a ton of mileage out of looking at our APIs as graphs. But because the object relations model comes really naturally to people, I want to keep on highlighting the state machine view. If you get just one thing out of this presentation, I'm hoping it is that I pique your curiosity in this direction. To that end, I have a really brief example about that I think is valuable. I'm stealing it from a great presentation by APIFortress.
+          </aside>
+        </section>
 
         <section>
-          <img src="etsy.jpg">
+          <img src="etsy.jpg" class="fragment">
           <img src="etsy_graph.svg" class="fragment">
           <img src="more_etsy_graph.svg" class="fragment">
           <aside class="notes">
-            I think most would agree that whether you want to think about the graph of program state or the graph of object relationships, we can get a ton of mileage out of looking at our APIs as graphs. But because the object relations model comes really naturally to people, I want to keep on highlighting the state machine view. I have a really brief example about that I think is valuable. I'm stealing it from a great presentation by APIFortress.
-            Who has heard of Etsy? Ok, Etsy's navigation at root works based on categories, which they call recipients. So a product has possibly many categories it fits into, and if you look at one of its categories you'll find the product. Now, data integrity wise, a product doesn't have to have a category to be valid. But users can't easily reach any products without a category. If we think about the application state graph a user has to traverse, we can see immediately that products without categories are at a huge disadvantage--you can only see them if you're already browsing a store. You can't see that though if you're thinking about relationships between objects, because you're not thinking about them in the context that they will be used in, their semantics.
-            Let's pretend another client for Etsy was written and that client didn't organize products by categories first, let's pretend instead they organized by vendor. That's the dashed red line. I'd say that's a bad client design based on this graph, because the user has to traverse more edges to get to the buy state, and that's our real target state. What if we introduced a top vendors state, which transcluded top 5 products in it? Better or worse design?
+            (first fragment) Who has heard of Etsy? Ok, Etsy's navigation at root works based on categories, which they call recipients. So a product has possibly many categories it fits into, and if you look at one of its categories you'll find the product.
+            (second fragment) Now, data integrity wise, a product doesn't have to have a category to be valid. But users can't easily reach any products without a category. If we think about the application state graph a user has to traverse, we can see immediately that products without categories are at a huge disadvantage--you can only see them if you're already browsing a store. You can't see that though if you're thinking about relationships between objects, because you're not thinking about them in the context that they will be used in, their semantics. Let's pretend another client for Etsy was written and that client didn't organize products by categories first, let's pretend instead they organized by vendor. That's the dashed red line. I'd say that's a bad client design based on this graph, because the user has to traverse more edges to get to the buy state, and that's our real target state.
+            (third fragment) What if we introduced a top vendors state, which transcluded top 5 products in it? Better or worse design?
           </aside>
         </section>
 
@@ -228,8 +236,8 @@
     ],
           </code></pre>
           <aside class="notes">
-            So the most popular hypermedia JSON type right now is probably JSONAPI. But I want to show you an example of something else called Siren. This is just a snippet off the whole example which is at the link.
-            (Ask audience: at this state in the application, does anyone not know how to add an item? Ask audience again: now, here's a more interesting question to me, could you write code to render this generically? Like if this wasn't "add-item", and it used "GET" instead of "POST", could you fairly easily write code to render it anyway?)
+            So the most popular hypermedia JSON type right now is probably JSON:API. But I want to show you an example of something else called Siren. This is just a snippet off the whole example which is at the link.
+            (Ask audience: at this state in the application, does anyone not know how to add an item? Ask audience again: now, here's a more interesting question to me, could you write code to render this generically? Like if this wasn't "add-item", and it used "GET" instead of "POST", could you fairly easily write code to render it too? Who here isn't sure they could write code generic enough to render both?)
             So I'd be really surprised if you couldn't. Now, the client obviously should be doing more work than that to help a user understand what to do, but there's a nice property of this generic rendering. If the server changes, it doesn't break the client. The client maybe doesn't see a pretty styled thing anymore, because they were applying some thought and design on their end, but they can still see the action and the client can still make that request to the server. This is because we gave affordances instead of just data.
             (Ask audience: who can tell me what an affordance is, in the world of design?)
           </aside>
@@ -279,7 +287,7 @@
          { src: 'plugin/notes/notes.js', async: true },
          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
        ]
-      });
+     });
     </script>
   </body>
 </html>
