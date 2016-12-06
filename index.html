@@ -220,20 +220,30 @@
 					<a href="https://github.com/kevinswiber/siren#example">application/vnd.siren+json</a>
 				</code>
 				<pre><code>
-					"actions": [
-					{
-					"name": "add-item",
-					"title": "Add Item",
-					"method": "POST",
-					"href": "http://api.x.io/orders/42/items",
-					"type": "application/x-www-form-urlencoded",
-					"fields": [
-					{ "name": "orderNumber", "type": "hidden", "value": "42" },
-					{ "name": "productCode", "type": "text" },
-					{ "name": "quantity", "type": "number" }
-					]
-				}
-				],
+ "actions":[  
+      {  
+         "name":"add-item",
+         "title":"Add Item",
+         "method":"POST",
+         "href":"http://api.x.io/orders/42/items",
+         "type":"application/x-www-form-urlencoded",
+         "fields":[  
+            {  
+               "name":"orderNumber",
+               "type":"hidden",
+               "value":"42"
+            },
+            {  
+               "name":"productCode",
+               "type":"text"
+            },
+            {  
+               "name":"quantity",
+               "type":"number"
+            }
+         ]
+      }
+   ],
 			</code></pre>
 			<aside class="notes">
 				So the most popular hypermedia JSON type right now is probably JSON:API. But I want to show you an example of something else called Siren. This is just a snippet off the whole example which is at the link.
