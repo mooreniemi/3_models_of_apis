@@ -69,8 +69,24 @@
 			left: -18px;
 			top: 44px;
 		}
-		CSS
 
+   .row-container {
+     margin-left: 200px;
+     display: flex;
+     flex-flow: row;
+     justify-content: space-around;
+   }
+
+   .row-item {
+   }
+
+   .red {
+     color: red;
+   }
+
+   .green {
+     color: #32CD32;
+   }
 	</style>
 </head>
 <body>
@@ -114,7 +130,7 @@
 					Ok, so, what's the best model?
 				</p>
 				<blockquote class="fragment">
-					"Essentially, <span style="color: red">all models are wrong</span>, but some are useful." --- Box, George E. P.; Norman R. Draper (1987). Empirical Model-Building and Response Surfaces, p. 424, Wiley. ISBN 0471810339.
+					"Essentially, <span class="red">all models are wrong</span>, but some are useful." — Box, George E. P.; Norman R. Draper (1987). Empirical Model-Building and Response Surfaces, p. 424, Wiley. ISBN 0471810339.
 				</blockquote>
 				<aside class="notes">
 					There isn't one model that is right for all use cases. I'm going to lean on analogy here, so forgive me. I tend to think of these models as trying to contribute in different ways. Say we have to dig a hole. I can give you the iron to make shovels, or a bunch of shovels, or a crew of people with shovels. Phrased that way you're probably like "well give me the crew." But what if you already have the work crew? You probably only want the shovels. What if you only have one worker ultimately? Maybe then you want to build an earthmover. You might just want the raw materials to build it. Ok this is a bad analogy.
@@ -207,11 +223,24 @@
 			<section>
 				<img src="etsy.jpg" class="fragment">
 				<img src="etsy_graph.svg" class="fragment">
-				<img src="more_etsy_graph.svg" class="fragment">
+				<img src="bad_etsy_graph.svg" class="fragment">
 				<aside class="notes">
 					(first fragment) Who has heard of Etsy? Ok, Etsy's navigation at root works based on categories, which they call recipients. So a product has possibly many categories it fits into, and if you look at one of its categories you'll find the product.
 					(second fragment) Now, data integrity wise, a product doesn't have to have a category to be valid. But users can't easily reach any products without a category. If we think about the application state graph a user has to traverse, we can see immediately that products without categories are at a huge disadvantage--you can only see them if you're already browsing a store. You can't see that though if you're thinking about relationships between objects, because you're not thinking about them in the context that they will be used in, their semantics. Let's pretend another client for Etsy was written and that client didn't organize products by categories first, let's pretend instead they organized by vendor. That's the dashed red line. I'd say that's a bad client design based on this graph, because the user has to traverse more edges to get to the buy state, and that's our real target state.
+				</aside>
+			</section>
+			<section>
+				<img src="bad_etsy_graph.svg">
+				<img src="good_etsy_graph.svg" class="fragment">
+        <div class="row-container">
+          <h2 class="fragment row-item"><span class="red">6</span></h2>
+          <h2 class="fragment row-item"><span class="green">3</span></h2>
+        </div>
+				<aside class="notes">
 					(third fragment) What if we introduced a top vendors state, which transcluded top 5 products in it? Better or worse design?
+          I'd say better design. Let's count the number of user actions necessary (clicks, let's say) to get to our revenue generating action.
+          Notice that the object relations haven't changed at all. Instead we've just tried to think how to keep this graph "shallow". We don't have that metric to compare our APIs unless we think of them as state machines, rather than data.
+          What can help us write APIs that expose state machines?
 				</aside>
 			</section>
 
@@ -220,24 +249,24 @@
 					<a href="https://github.com/kevinswiber/siren#example">application/vnd.siren+json</a>
 				</code>
 				<pre><code>
- "actions":[  
-      {  
+ "actions":[
+      {
          "name":"add-item",
          "title":"Add Item",
          "method":"POST",
          "href":"http://api.x.io/orders/42/items",
          "type":"application/x-www-form-urlencoded",
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"orderNumber",
                "type":"hidden",
                "value":"42"
             },
-            {  
+            {
                "name":"productCode",
                "type":"text"
             },
-            {  
+            {
                "name":"quantity",
                "type":"number"
             }

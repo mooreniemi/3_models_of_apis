@@ -1,12 +1,13 @@
 digraph {
   homepage -> products [label=":category_id" color=blue]
+  homepage -> vendors [color=red label=":vendor_type_id" style=dashed]
   vendor -> vendors [label="up"]
-  vendors -> vendor [label=":vendor_id"]
+  vendors -> vendor [label=":vendor_id" color=red]
   product -> products [label="up"]
   products -> product [label=":product_id" color=blue]
   product -> cart [label="add" color=blue]
   cart -> product [label="delete"]
   cart -> invoice [label="buy" color=blue]
   product -> vendor [label=":vendor_id"]
-  vendor -> products [label="products"]
+  vendor -> products [label="products" color=red]
 }
