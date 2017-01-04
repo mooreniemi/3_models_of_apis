@@ -1,255 +1,299 @@
 <!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>3 Models of APIs</title>
+		<title>3 Models of APIs</title>
 
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
 
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	</script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 
-	<style>
-		.copy-left {
-			display: inline-block;
-			text-align: right;
-			margin: 0px;
-			-moz-transform: scaleX(-1);    /* Gecko */
-			-o-transform: scaleX(-1);      /* Opera */
-			-webkit-transform: scaleX(-1); /* Webkit */
-			transform: scaleX(-1);         /* Standard */
-			filter: FlipH;                 /* IE 6/7/8 */
-		}
+		<style>
+			.copy-left {
+				display: inline-block;
+				text-align: right;
+				margin: 0px;
+				-moz-transform: scaleX(-1);    /* Gecko */
+				-o-transform: scaleX(-1);      /* Opera */
+				-webkit-transform: scaleX(-1); /* Webkit */
+				transform: scaleX(-1);         /* Standard */
+				filter: FlipH;                 /* IE 6/7/8 */
+			}
 
-		.bubble {
-			position: relative;
-			height: 120px;
-			background: #FFFFFF;
-			color: black;
-			-webkit-border-radius: 10px;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
-			border: #7F7F7F solid 2px;
-		}
+			.bubble {
+				position: relative;
+				height: 120px;
+				background: #FFFFFF;
+				color: black;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				border: #7F7F7F solid 2px;
+			}
 
-		.bubble:after {
-			content: '';
-			position: absolute;
-			border-style: solid;
-			border-width: 15px 15px 15px 0;
-			border-color: transparent #FFFFFF;
-			display: block;
-			width: 0;
-			z-index: 1;
-			left: -15px;
-			top: 45px;
-		}
+			.bubble:after {
+				content: '';
+				position: absolute;
+				border-style: solid;
+				border-width: 15px 15px 15px 0;
+				border-color: transparent #FFFFFF;
+				display: block;
+				width: 0;
+				z-index: 1;
+				left: -15px;
+				top: 45px;
+			}
 
-		.bubble:before {
-			content: '';
-			position: absolute;
-			border-style: solid;
-			border-width: 16px 16px 16px 0;
-			border-color: transparent #7F7F7F;
-			display: block;
-			width: 0;
-			z-index: 0;
-			left: -18px;
-			top: 44px;
-		}
+			.bubble:before {
+				content: '';
+				position: absolute;
+				border-style: solid;
+				border-width: 16px 16px 16px 0;
+				border-color: transparent #7F7F7F;
+				display: block;
+				width: 0;
+				z-index: 0;
+				left: -18px;
+				top: 44px;
+			}
 
-   .row-container {
-     margin-left: 200px;
-     display: flex;
-     flex-flow: row;
-     justify-content: space-around;
-   }
+			.row-container {
+				margin-left: 200px;
+				display: flex;
+				flex-flow: row;
+				justify-content: space-around;
+			}
 
-   .row-item {
-   }
+			.row-item {
+			}
 
-   .red {
-     color: red;
-   }
+			.red {
+				color: red;
+			}
 
-   .green {
-     color: #32CD32;
-   }
-	</style>
-</head>
-<body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-				<h2>3 Mental Models of APIs</h2>
-				<p>Viewing this by yourself? Hit 's' to see my speaker's notes.</p>
-			</section>
+			.green {
+				color: #32CD32;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>3 Mental Models of APIs</h2>
+					<p>Viewing this by yourself? Hit 's' to see my speaker's notes.</p>
+				</section>
 
-			<section>
-				<section id="fragments">
-					<h2>API as...</h2>
-					<p class="fragment" data-fragment-index="1">
-						Persistence layer
-						<span class="fragment" data-fragment-index="4">
-							("REST"/GraphQL/Graph APIs generally)
-						</span>
+				<section>
+					<section id="fragments">
+						<h2>API as...</h2>
+						<p class="fragment" data-fragment-index="1">
+							Persistence layer
+							<span class="fragment" data-fragment-index="4">
+								("REST"/GraphQL/Graph APIs generally)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Namespace of functions
+							<span class="fragment" data-fragment-index="5">
+								(RPC, ie gRPC)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							State machine
+							<span class="fragment" data-fragment-index="6">
+								(REST)
+							</span>
+						</p>
+
+						<aside class="notes">
+							So I've come to see roughly 3 mental models of API design. Persistence layer, namespace of functions, and state machine. What do all these have in common? They represent ways for the client to think of their integration layer. Are you integrating with storage? Are you integrating with a module? Are you integrating with another process or program?
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						Ok, so, what's the best model?
 					</p>
-					<p class="fragment" data-fragment-index="2">
-						Namespace of functions
-						<span class="fragment" data-fragment-index="5">
-							(RPC, ie gRPC)
-						</span>
-					</p>
-					<p class="fragment" data-fragment-index="3">
-						State machine
-						<span class="fragment" data-fragment-index="6">
-							(REST)
-						</span>
-					</p>
-
+					<blockquote class="fragment">
+						"Essentially, <span class="red">all models are wrong</span>, but some are useful." — Box, George E. P.; Norman R. Draper (1987). Empirical Model-Building and Response Surfaces, p. 424, Wiley. ISBN 0471810339.
+					</blockquote>
 					<aside class="notes">
-						So I've come to see roughly 3 mental models of API design. Persistence layer, namespace of functions, and state machine. What do all these have in common? They represent ways for the client to think of their integration layer. Are you integrating with storage? Are you integrating with a module? Are you integrating with another process or program?
+						There isn't one model that is right for all use cases. I'm going to lean on analogy here, so forgive me. I tend to think of these models as trying to contribute in different ways. Say we have to dig a hole. I can give you the iron to make shovels, or a bunch of shovels, or a crew of people with shovels. Phrased that way you're probably like "well give me the crew." But what if you already have the work crew? You probably only want the shovels. What if you only have one worker ultimately? Maybe then you want to build an earthmover. You might just want the raw materials to build it. Ok this is a bad analogy.
 					</aside>
 				</section>
-			</section>
 
-			<section>
-				<p>
-					Ok, so, what's the best model?
-				</p>
-				<blockquote class="fragment">
-					"Essentially, <span class="red">all models are wrong</span>, but some are useful." — Box, George E. P.; Norman R. Draper (1987). Empirical Model-Building and Response Surfaces, p. 424, Wiley. ISBN 0471810339.
-				</blockquote>
-				<aside class="notes">
-					There isn't one model that is right for all use cases. I'm going to lean on analogy here, so forgive me. I tend to think of these models as trying to contribute in different ways. Say we have to dig a hole. I can give you the iron to make shovels, or a bunch of shovels, or a crew of people with shovels. Phrased that way you're probably like "well give me the crew." But what if you already have the work crew? You probably only want the shovels. What if you only have one worker ultimately? Maybe then you want to build an earthmover. You might just want the raw materials to build it. Ok this is a bad analogy.
-				</aside>
-			</section>
+				<section>
+					<h2>🤔</h2>
+					<p>When building an API, what abstraction level should we expose to the client(s) for <em>this piece of functionality</em>?</p>
+					<p class="fragment">Well, what does the client want? Or what do we want the client to want? Or will we have multiple clients, with competing "wants"?</p>
+					<aside class="notes">
+						I see sort of a gradient of abstraction here. You can give people data, which is not abstract at all, it's just concrete values, or you can give people functions which operate on data or each other, or you can give people entire slices of application execution, which is very abstract.
+					</aside>
+				</section>
 
-			<section>
-				<h2>🤔</h2>
-				<p>When building an API, what abstraction level should we expose to the client(s) for <em>this piece of functionality</em>?</p>
-				<p class="fragment">Well, what does the client want? Or what do we want the client to want? Or will we have multiple clients, with competing "wants"?</p>
-				<aside class="notes">
-					I see sort of a gradient of abstraction here. You can give people data, which is not abstract at all, it's just concrete values, or you can give people functions which operate on data or each other, or you can give people entire slices of application execution, which is very abstract.
-				</aside>
-			</section>
+				<section>
+					<h2>Personal Opinion Alert</h2>
+					<h1 style="color: yellow">	&#9888; </h1>
+					<p class="fragment">Let's put the "Application" back in Application Programming Interface.</p>
+					<aside class="notes">
+						My bias is towards giving people a more abstract API, because giving people concrete values has two big downsides. One is that they can infer all kinds of meaning in concrete values I might not have intended. It's a lot harder to infer meaning in an abstract application state that I didn't put there explicitly. The other downside is that we become coupled at a pretty fine grain when you're looking at concrete values. This is why query languages like GraphQL are becoming popular. They're to try to help solve the second problem, but I'm not convinced they help us with the first problem.
+					</aside>
+				</section>
 
-			<section>
-				<h2>Personal Opinion Alert</h2>
-				<h1 style="color: yellow">	&#9888; </h1>
-				<p class="fragment">Let's put the "Application" back in Application Programming Interface.</p>
-				<aside class="notes">
-					My bias is towards giving people a more abstract API, because giving people concrete values has two big downsides. One is that they can infer all kinds of meaning in concrete values I might not have intended. It's a lot harder to infer meaning in an abstract application state that I didn't put there explicitly. The other downside is that we become coupled at a pretty fine grain when you're looking at concrete values. This is why query languages like GraphQL are becoming popular. They're to try to help solve the second problem, but I'm not convinced they help us with the first problem.
-				</aside>
-			</section>
+				<section>
+					<p>Reality: your API is probably gonna do a bit of all 3.</p>
+					<ul>
+						<li class="fragment">If you're serving multiple, potentially thick, clients: you likely want some generic data exposure (like "REST" or GraphQL).</li>
+						<li class="fragment">If you're providing unsequenced commands clients can choose how to present but you implement (and you can't just release as a local module): you need some RPC.</li>
+						<li class="fragment">If you're providing <b>sequenced workflows</b> (like, y'know, <i>business processes</i>): you want REST with HATEOAS.</li>
+					</ul>
+					<aside class="notes">
+						Why am I pointing out sequence here? (Ask audience: who here has dealt with a tricky or devastating race condition in a production system?) Allowing arbitrary resequencing of operations on the client side increases complexity. So sometimes you don't want to do that.
+					</aside>
+				</section>
 
-			<section>
-				<p>Reality: your API is probably gonna do a bit of all 3.</p>
-				<ul>
-					<li class="fragment">If you're serving multiple, potentially thick, clients: you likely want some generic data exposure (like "REST" or GraphQL).</li>
-					<li class="fragment">If you're providing unsequenced commands clients can choose how to present but you implement (and you can't just release as a local module): you need some RPC.</li>
-					<li class="fragment">If you're providing <b>sequenced workflows</b> (like, y'know, <i>business processes</i>): you want REST with HATEOAS.</li>
-				</ul>
-				<aside class="notes">
-					Why am I pointing out sequence here? (Ask audience: who here has dealt with a tricky or devastating race condition in a production system?) Allowing arbitrary resequencing of operations on the client side increases complexity. So sometimes you don't want to do that.
-				</aside>
-			</section>
+				<section>
+					<p class="bubble">Ok dude. Why do you keep putting REST in scare quotes sometimes?</p>
+					<p class="fragment">REST has a <a href="http://amundsen.com/talks/2016-11-apistrat-wadm/2016-11-apistrat-wadm.pdf">maturity model</a>.</p>
+					<p class="bubble fragment">😒 So..?</p>
+					<p class="fragment">So fully "mature" REST has to obey the hypermedia constraint.</p>
 
-			<section>
-				<p class="bubble">Ok dude. Why do you keep putting REST in scare quotes sometimes?</p>
-				<p class="fragment">REST has a <a href="http://amundsen.com/talks/2016-11-apistrat-wadm/2016-11-apistrat-wadm.pdf">maturity model</a>.</p>
-				<p class="bubble fragment">😒 So..?</p>
-				<p class="fragment">So fully "mature" REST has to obey the hypermedia constraint.</p>
+					<aside class="notes">
+						Hypermedia sounds super esoteric, but it's actually so common you don't notice it. Every piece of HTML you interact with is the surface of a hypermedia API. But in the development community today, we only think of APIs as serving JSON, and the dominant model of using JSON is data exposure. When people become frustrated with the limitations of data exposure, they reach for RPC. That's not wrong, but I want to introduce you to another tool in your toolbox.
+					</aside>
+				</section>
 
-				<aside class="notes">
-					Hypermedia sounds super esoteric, but it's actually so common you don't notice it. Every piece of HTML you interact with is the surface of a hypermedia API. But in the development community today, we only think of APIs as serving JSON, and the dominant model of using JSON is data exposure. When people become frustrated with the limitations of data exposure, they reach for RPC. That's not wrong, but I want to introduce you to another tool in your toolbox.
-				</aside>
-			</section>
+				<section>
+					<p class="fragment" data-fragment-index="1">
+						<span class="fragment" data-fragment-index="4">
+							⬇️
+						</span>
+						🏭 resource state
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						✨✨ <em>implicit program state</em> ✨✨
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						application state 🎮
+						<span class="fragment" data-fragment-index="5">
+							⬆️
+						</span>
+					</p>
+					<aside class="notes">
+						For that, I need to introduce a couple other terms. Resource state, and application state. Most people think of REST as focusing on resource state, and being resource-centric.
+						(Ask audience: what is resource state?) Resource state is the server's state. The client will never have direct access to it. Instead they'll receive representations.
+						So we tend to think of resources as 1:1 with objects, and REST as the CRUD we can do to those objects. In fact, originally the only restriction on what can be a resource is that it has a URL. So literally: can you dereference this? Then it's a resource.
+						(Ask audience: what is application state?) Application state is what's on the client, and likewise, the server will never have direct access to it. In the simplest possible case, the application state on the client is the last representation of resource state a client received from the server, which encompasses likely some object's state and crucially the state transitions the server will accept to change state.
+						Between these two states, your application is sitting on some state in the overall state machine. I want to encourage you to try thinking less in terms of resource state, and more in terms of application state, especially in state transitions.
+					</aside>
+				</section>
 
-			<section>
-				<p class="fragment" data-fragment-index="1">
-					<span class="fragment" data-fragment-index="3">
-						❌
-					</span>
-					🏭 resource state
-				</p>
-				<p class="fragment" data-fragment-index="2">
-					application state 🎮
-					<span class="fragment" data-fragment-index="4">
-						✅
-					</span>
-				</p>
-				<aside class="notes">
-					For that, I need to introduce a couple other terms. Resource state, and application state. Most people think of REST as focusing on resource state, and being resource-centric.
-					(Ask audience: what is resource state?) Resource state is the server's state. The client will never have direct access to it. Instead they'll receive representations.
-					So we tend to think of resources as 1:1 with objects, and REST as the CRUD we can do to those objects. In fact, originally the only restriction on what can be a resource is that it has a URL. So literally: can you dereference this? Then it's a resource.
-					(Ask audience: what is application state?) Application state is what's on the client, and likewise, the server will never have direct access to it. In the simplest possible case, the application state on the client is the last representation of resource state a client received from the server, which encompasses likely some object's state and crucially the state transitions the server will accept to change state.
-					Between these two states, your application is sitting on some state in the overall state machine. I want to encourage you to try thinking less in terms of resource state, and more in terms of application state, especially in state transitions.
-				</aside>
-			</section>
+				<section>
+					<img src="simple_graph.svg">
+					<img src="less_simple_graph.svg" class="fragment">
+					<img src="simple_with_subgraph.svg" class="fragment">
+					<aside class="notes">
+						Here's a pretty simple graph. I think the way most people look at RESTful APIs today, they see each node as a representation of persisted object state. The only links people concieve of are at the object relation level. So something like GraphQL extends and seems to supercede that view by giving you a flexible language to redefine objects and traverse an object graph. As a side note, I want to point out that's not really new. If you're curious, check out SPARQL.
+						Anyway this object relation model isn't wrong. But I'm using this graph to represent the state machine of our application on the server. So the red is a path of execution through that program. You can think of the edges as simple links, but it's important to see them also as more advanced controls like forms.
+						Imagine this is showing us a business process we provide. Every node is an application state and every edge between nodes is a state transition. Technically speaking, every node is a representation of a resource, and every edge is a link relation. Speaking less formally, every node is roughly a page, and every edge is an action to change the page.
+						The content of any node may be made up of multiple different objects. This is possible because resources don't have to map to our object model 1:1. A resource is free to be a higher level abstraction. One key thing to observe about this state machine graph is that you can negotiate with a client about how much of it to send over at once. If you want totally dynamic binding, you can just give your client a single node at a time. But for clients that want fewer requests, you can let them request subgraphs or even the entire graph at a single request. That's called transclusion and we can chat about it a bit more if you're curious.
+					</aside>
+				</section>
+				<section>
+					<h5>TL;DR: try state machines instead of entity-relations</h5>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Finite_state_machine_example_with_comments.svg" style="background-color:white; height:464px; width:424px;">
+					<img src="https://wcs.smartdraw.com/entity-relationship-diagram/img/information-engineering-style.jpg?bn=1510011060">
+					<aside class="notes">
+						I think most would agree that whether you want to think about the graph of program state or the graph of object relationships, we can get a ton of mileage out of looking at our APIs as graphs. But because the object relations model comes really naturally to people, I want to keep on highlighting the state machine view. If you get just one thing out of this presentation, I'm hoping it is that I pique your curiosity in this direction. To that end, I have a really brief example about that I think is valuable. I'm stealing it from a great presentation by APIFortress.
+					</aside>
+				</section>
 
-			<section>
-				<img src="simple_graph.svg">
-				<img src="less_simple_graph.svg" class="fragment">
-				<img src="simple_with_subgraph.svg" class="fragment">
-				<aside class="notes">
-					Here's a pretty simple graph. I think the way most people look at RESTful APIs today, they see each node as a representation of persisted object state. The only links people concieve of are at the object relation level. So something like GraphQL extends and seems to supercede that view by giving you a flexible language to redefine objects and traverse an object graph. As a side note, I want to point out that's not really new. If you're curious, check out SPARQL.
-					Anyway this object relation model isn't wrong. But I'm using this graph to represent the state machine of our application on the server. So the red is a path of execution through that program. You can think of the edges as simple links, but it's important to see them also as more advanced controls like forms.
-					Imagine this is showing us a business process we provide. Every node is an application state and every edge between nodes is a state transition. Technically speaking, every node is a representation of a resource, and every edge is a link relation. Speaking less formally, every node is roughly a page, and every edge is an action to change the page.
-					The content of any node may be made up of multiple different objects. This is possible because resources don't have to map to our object model 1:1. A resource is free to be a higher level abstraction. One key thing to observe about this state machine graph is that you can negotiate with a client about how much of it to send over at once. If you want totally dynamic binding, you can just give your client a single node at a time. But for clients that want fewer requests, you can let them request subgraphs or even the entire graph at a single request. That's called transclusion and we can chat about it a bit more if you're curious.
-				</aside>
-			</section>
-			<section>
-				<h5>TL;DR: try state machines instead of entity-relations</h5>
-				<img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Finite_state_machine_example_with_comments.svg" style="background-color:white; height:464px; width:424px;">
-				<img src="https://wcs.smartdraw.com/entity-relationship-diagram/img/information-engineering-style.jpg?bn=1510011060">
-				<aside class="notes">
-					I think most would agree that whether you want to think about the graph of program state or the graph of object relationships, we can get a ton of mileage out of looking at our APIs as graphs. But because the object relations model comes really naturally to people, I want to keep on highlighting the state machine view. If you get just one thing out of this presentation, I'm hoping it is that I pique your curiosity in this direction. To that end, I have a really brief example about that I think is valuable. I'm stealing it from a great presentation by APIFortress.
-				</aside>
-			</section>
+				<section>
+					<h4>etsy: data integrity vs user path</h4>
+					<img src="etsy_navigation.gif">
+					<p class="fragment">Navigation is based on <b>category</b>.</p>
+					<p class="fragment">But what if a product lacks a category? 😬</p>
+					<aside class="notes">
+						Who has heard of Etsy? Ok, Etsy's navigation at root works based on categories, which they call recipients. (first fragment) So a product has possibly many categories it fits into, and if you look at one of its categories you'll find the product. (second fragment)
+					</aside>
+				</section>
 
-			<section>
-				<img src="etsy.jpg" class="fragment">
-				<img src="etsy_graph.svg" class="fragment">
-				<img src="bad_etsy_graph.svg" class="fragment">
-				<aside class="notes">
-					(first fragment) Who has heard of Etsy? Ok, Etsy's navigation at root works based on categories, which they call recipients. So a product has possibly many categories it fits into, and if you look at one of its categories you'll find the product.
-					(second fragment) Now, data integrity wise, a product doesn't have to have a category to be valid. But users can't easily reach any products without a category. If we think about the application state graph a user has to traverse, we can see immediately that products without categories are at a huge disadvantage--you can only see them if you're already browsing a store. You can't see that though if you're thinking about relationships between objects, because you're not thinking about them in the context that they will be used in, their semantics. Let's pretend another client for Etsy was written and that client didn't organize products by categories first, let's pretend instead they organized by vendor. That's the dashed red line. I'd say that's a bad client design based on this graph, because the user has to traverse more edges to get to the buy state, and that's our real target state.
-				</aside>
-			</section>
-			<section>
-				<img src="bad_etsy_graph.svg">
-				<img src="good_etsy_graph.svg" class="fragment">
-        <div class="row-container">
-          <h2 class="fragment row-item"><span class="red">6</span></h2>
-          <h2 class="fragment row-item"><span class="green">3</span></h2>
-        </div>
-				<aside class="notes">
-					(third fragment) What if we introduced a top vendors state, which transcluded top 5 products in it? Better or worse design?
-          I'd say better design. Let's count the number of user actions necessary (clicks, let's say) to get to our revenue generating action.
-          Notice that the object relations haven't changed at all. Instead we've just tried to think how to keep this graph "shallow". We don't have that metric to compare our APIs unless we think of them as state machines, rather than data.
-          What can help us write APIs that expose state machines?
-				</aside>
-			</section>
+				<section>
+					<img src="etsy.jpg">
+					<img src="etsy_graph.svg" class="fragment">
+					<img src="bad_etsy_graph.svg" class="fragment">
+					<aside class="notes">
+						(second fragment) Now, data integrity wise, a product doesn't have to have a category to be valid. But users can't easily reach any products without a category. If we think about the application state graph a user has to traverse, we can see immediately that products without categories are at a huge disadvantage--you can only see them if you're already browsing a store.
+						You can't see that though if you're thinking about relationships between objects, because you're not thinking about them in the context that they will be used in, their semantics. Let's pretend another client for Etsy was written and that client didn't organize products by categories first, let's pretend instead they organized by vendor, because all products absolutely must have a vendor to be valid. This new user path is the dashed red line. I'd say that's a bad client design based on this graph, because the user has to traverse more edges to get to the buy state, and that's our real target state.
+					</aside>
+				</section>
+				<section>
+					<img src="bad_etsy_graph.svg">
+					<img src="good_etsy_graph.svg" class="fragment">
+					<div class="row-container">
+						<h2 class="fragment row-item"><span class="red">6</span></h2>
+						<h2 class="fragment row-item"><span class="green">3</span></h2>
+					</div>
+					<aside class="notes">
+						Can we do better than this?
+						(third fragment) What if we introduced a top vendors state, which transcluded top 5 products in it? Better or worse design?
+						I'd say better design. Let's count the number of user actions necessary (clicks, let's say) to get to our revenue generating action.
+						Notice that the object relations haven't changed at all. Instead we've just tried to think how to keep this graph "shallow". We don't have that metric to compare our APIs unless we think of them as state machines, rather than data.
+						The process by which I created this graphs comes from a book called RESTful Web APIs by Richardson and Amundsen.
+					</aside>
+				</section>
 
-			<section>
-				<code>
-					<a href="https://github.com/kevinswiber/siren#example">application/vnd.siren+json</a>
-				</code>
-				<pre><code>
- "actions":[
+				<section>
+					<h3>hypermedia process</h3>
+					<ol>
+						<li class="fragment">write out all input/output between the client and server</li>
+						<li class="fragment">circle inputs and outputs into nodes as appropriate</li>
+						<li class="fragment">draw edges between every node where an interaction must happen</li>
+						<li class="fragment">label every edge (input/output function) you just created</li>
+					</ol>
+					<aside class="notes">
+						We're probably going too fast to really "get" what this process looks like in practice. If we have time after, we can see about going through an actual example. But take my word on it right now this process results in a state machine of your application. If that's so, why doesn't anyone do this?
+					</aside>
+				</section>
+
+				<section>
+					<blockquote>API specification is in conflict with hypermedia.</blockquote>
+					<aside class="notes">
+						One of the most interesting things I heard at APIStrat this year was from Darrel Miller. He's a Microsoft guy working on OpenAPI spec. This is what Swagger is turning into, in case you didn't know. This seems like a mysterious and foreboding statement. What does it mean?
+						First of all remember hypermedia is what gives REST the constraint that lets us build a state machine.
+					</aside>
+				</section>
+
+				<section>
+					<img src="horse_flowchart.jpg">
+					<aside class="notes">
+						Here's a very basic state machine that helps you decide a very important computation. As of right now, has anyone dealt with a generator that gives them a view of their app's execution path like this out of a spec they wrote? I haven't encountered one yet. I think that's because if you did, you'd actually have something that could generate an entire application, and not just a data layer or list of functions. You'd need your representations, the things you usually spec, to themselves fully document their relationships to other representations not just as data but as actions. What would a representation look like that could do that?
+					</aside>
+				</section>
+
+				<section>
+					<code>
+						<a href="https://github.com/kevinswiber/siren#example">application/vnd.siren+json</a>
+					</code>
+					<pre><code>
+"name": "item",
+"id": 22,
+"actions":[
       {
          "name":"add-item",
          "title":"Add Item",
@@ -272,81 +316,101 @@
             }
          ]
       }
-   ],
-			</code></pre>
-			<aside class="notes">
-				So the most popular hypermedia JSON type right now is probably JSON:API. But I want to show you an example of something else called Siren. This is just a snippet off the whole example which is at the link.
-				(Ask audience: at this state in the application, does anyone not know how to add an item? Ask audience again: now, here's a more interesting question to me, could you write code to render this generically? Like if this wasn't "add-item", and it used "GET" instead of "POST", could you fairly easily write code to render it too? Who here isn't sure they could write code generic enough to render both?)
-				So I'd be really surprised if you couldn't. Now, the client obviously should be doing more work than that to help a user understand what to do, but there's a nice property of this generic rendering. If the server changes, it doesn't break the client. The client maybe doesn't see a pretty styled thing anymore, because they were applying some thought and design on their end, but they can still see the action and the client can still make that request to the server. This is because we gave affordances instead of just data.
-				(Ask audience: who can tell me what an affordance is, in the world of design?)
-			</aside>
-		</section>
+   ]
+</pre></code>
+					<aside class="notes">
+						So the most popular hypermedia JSON type right now is probably JSON:API. But I want to show you an example of something else called Siren. This is just a snippet off the whole example which is at the link. Hypermedia means adding controls to a representation of data. If we're forced to think how data is used, we're closer to thinking in the state machine model.
+						(Ask audience: at this state in the application, who here knows how to add an item?) So I'd be really surprised if you couldn't. This is because we gave affordances instead of just data.
+						(Ask audience: who can tell me what an affordance is, in the world of design?)
+					</aside>
+				</section>
 
-		<section>
-			<p><h2><a href="https://www.merriam-webster.com/dictionary/affordance">affordance</a></h2><b>noun</b>  <i>af·ford·ance</i> \ə-ˈfȯr-dəns\ <br>the qualities or properties of an object that define its possible uses or make clear how it can or should be used</p>
-			<blockquote>
-				"We sit or stand on a chair because those affordances are fairly obvious." — Scott Lafee, San Diego Union-Tribune, 15 Aug. 1993
-			</blockquote>
-			<aside class="notes">
-				In our domain, we can get a little more specific about what affordance means to us.
-			</aside>
-		</section>
+				<section>
+					<p><h2><a href="https://www.merriam-webster.com/dictionary/affordance">affordance</a></h2><b>noun</b>  <i>af·ford·ance</i> \ə-ˈfȯr-dəns\ <br>the qualities or properties of an object that define its possible uses or make clear how it can or should be used</p>
+					<blockquote>
+						"We sit or stand on a chair because those affordances are fairly obvious." — Scott Lafee, San Diego Union-Tribune, 15 Aug. 1993
+					</blockquote>
+					<aside class="notes">
+						In our domain, we can get a little more specific about what affordance means to us.
+					</aside>
+				</section>
 
-		<section>
-			<p><h2><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718">affordance (hypermedia)</a></h2>the qualities or properties of a <em>representation</em> that define its possible <em>state changing transitions</em> or make clear how it can or should be used <em>to move to other program states</em></p>
-			<blockquote>
-				the simultaneous presentation of information and controls such that the information becomes the affordance through which the user (or automaton) obtains choices and selects actions — Roy T. Fielding
-			</blockquote>
-			<aside class="notes">
-				This sounds a little highbrow, but all I'm really saying here is that people know how to use a readymade object sooner than they know how to recreate that object out of raw materials. When we build data APIs, we're giving people raw materials, and we have very little guarantee that they're going to build the same thing we would've built when we provided that data to them.
-			</aside>
-		</section>
+				<section>
+					<p><h2><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718">affordance (hypermedia)</a></h2>the qualities or properties of a <em>representation</em> that define its possible <em>state changing transitions</em> or make clear how it can or should be used <em>to move to other program states</em></p>
+					<blockquote>
+						the simultaneous presentation of information and controls such that the information becomes the affordance through which the user (or automaton) obtains choices and selects actions — Roy T. Fielding
+					</blockquote>
+					<aside class="notes">
+						This sounds a little highbrow, but all I'm really saying here is that people know how to use a readymade object sooner than they know how to recreate that object out of raw materials. When we build data APIs, we're giving people raw materials, and we have very little guarantee that they're going to build the same thing we would've built when we provided that data to them.
+					</aside>
+				</section>
 
-		<section>
-			<h4>data with affordances > data without affordances</h4>
-			<h2>💺 > 🌲</h2>
-			<p class="fragment">(Humans prefer to sit on chairs.)</p>
-			<aside class="notes">
-				So you can take a motto from this that data with affordances is better than data without affordances. Fully "mature" REST, with hypermedia, is just about providing responses with affordances that help a user understand where they are in the application, and what they can do. If you're a client developer, I want you to be asking me for affordances with data. If you're a server developer, I want you to be providing affordances with data. Why? Because that way we'll have a shared understanding of what the semantics of the application are in total, in the space between the client and server where our real program exists a little amorphously.
-			</aside>
-		</section>
+<section>
+<p> item → add-item → purchase: 2 clicks!</p>
+					<pre><code>"name": "item",
+"actions":[
+      {
+         "name":"add-item",
+	}
+]
 
-		<section>
-			<blockquote>
-				The child begins, no doubt, by perceiving the affordances of things for her, for her own personal behavior. She walks and sits and grasps relative to her own legs and body and hands. But she must learn to perceive the affordances of things for other observers as well as for herself. — James J. Gibson, <a href="http://cs.brown.edu/courses/cs137/readings/Gibson-AFF.pdf">The Ecological Approach to Visual Perception</a>
-			</blockquote>
-			<aside class="notes">
-				I want to leave you with a quote from the design scholar that coined the term affordance and ask you a favor. When you go back to your desks today, just give 5 minutes thought to the kind of APIs you're writing or integrating with. Do you treat your API as just a data layer? Is it just an RPC namespace? Do you share program state in self-descriptive messages? What tradeoffs have you found in each of these models? Do you think about your API in a totally different mental model? I'd love to hear your thoughts on these questions. And if you have any questions about what I've described or the practical aspects of what I've outlined I'm happy to take them now or chat later.
-			</aside>
-		</section>
+"name": "add-item",
+"actions":[
+      {
+         "name":"purchase",
+	}
+]</code></pre>
+<aside class="notes">
+Here's the thing, if you can understand the affordance, you might be able to program a machine to understand the affordance. (Ask audience: based on the fact that all representations will have an "actions" block like this, is there a way to generate a state machine from them?)
+A machine can easily traverse all the actions and recreate precisely the graph we started out with. If it can create a graph from these representations, the reverse is also possible. If you're curious, I'm working on a side project called Picatrix that does exactly that: you feed it a graph, and it generates a functioning API for you.
+</aside>
+</section>
 
-		<section>
-			<p><a href="https://twitter.com/feminstwerewolf">alex moore - niemi</a></p>
-			<p><span class="copy-left">©</span> 2016</p>
-			<aside class="notes">
-				Thanks!
-			</aside>
-		</section>
-	</div>
-</div>
+				<section>
+					<h4>data with affordances > data without affordances</h4>
+					<h2>💺 > 🌲</h2>
+					<p class="fragment">(Humans prefer to sit on chairs.)</p>
+					<aside class="notes">
+						So you can take a motto from this that data with affordances is better than data without affordances. Fully "mature" REST, with hypermedia, is just about providing responses with affordances that help a user understand where they are in the application, and what they can do. If you're a client developer, I want you to be asking me for affordances with data. If you're a server developer, I want you to be providing affordances with data. Why? Because that way we'll have a shared understanding of what the semantics of the application are in total, in the space between the client and server where our real program exists a little amorphously.
+					</aside>
+				</section>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+				<section>
+					<blockquote>
+						The child begins, no doubt, by perceiving the affordances of things for her, for her own personal behavior. She walks and sits and grasps relative to her own legs and body and hands. But she must learn to perceive the affordances of things for other observers as well as for herself. — James J. Gibson, <a href="http://cs.brown.edu/courses/cs137/readings/Gibson-AFF.pdf">The Ecological Approach to Visual Perception</a>
+					</blockquote>
+					<aside class="notes">
+						I want to leave you with a quote from the design scholar that coined the term affordance and ask you a favor. When you go back to your desks today, just give 5 minutes thought to the kind of APIs you're writing or integrating with. Do you treat your API as just a data layer? Is it just an RPC namespace? Do you share program state in self-descriptive messages? What tradeoffs have you found in each of these models? Do you think about your API in a totally different mental model? I'd love to hear your thoughts on these questions. And if you have any questions about what I've described or the practical aspects of what I've outlined I'm happy to take them now or chat later.
+					</aside>
+				</section>
 
-<script>
-     // More info https://github.com/hakimel/reveal.js#configuration
-     Reveal.initialize({
-     	history: true,
+				<section>
+					<p><a href="https://twitter.com/feminstwerewolf">alex moore - niemi</a></p>
+					<p><span class="copy-left">©</span> 2016</p>
+					<aside class="notes">
+						Thanks!
+					</aside>
+				</section>
+			</div>
+		</div>
 
-       // More info https://github.com/hakimel/reveal.js#dependencies
-       dependencies: [
-       { src: 'plugin/markdown/marked.js' },
-       { src: 'plugin/mathsvg/math.js', async: true },
-       { src: 'plugin/markdown/markdown.js' },
-       { src: 'plugin/notes/notes.js', async: true },
-       { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-       ]
-   });
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		history: true,
+
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/mathsvg/math.js', async: true },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		]
+	});
 </script>
 </body>
 </html>
